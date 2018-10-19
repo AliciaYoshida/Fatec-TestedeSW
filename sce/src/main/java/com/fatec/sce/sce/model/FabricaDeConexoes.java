@@ -3,7 +3,9 @@ package com.fatec.sce.sce.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import com.mysql.cj.jdbc.exceptions.CommunicationsException;
+
+import com.mysql.jdbc.CommunicationsException;
+
 
 public class FabricaDeConexoes {
 	String url = "jdbc:mysql://localhost:3306/biblioteca";

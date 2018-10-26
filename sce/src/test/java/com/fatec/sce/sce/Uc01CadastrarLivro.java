@@ -4,22 +4,28 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.fatec.sce.sce.model.FabricaDeConexoes;
+import com.mysql.jdbc.Connection;
+
 public class Uc01CadastrarLivro {
 
-	@Test
-	public void CT01CadastrarLivroComDadosValidos() {
-		try {
-			// cenario
-			/*Livro umLivro = new Livro();
-			// acao
-			umLivro.setIsbn("121212");
-			umLivro.setTitulo("Engenharia de Softwar");
-			umLivro.setAutor("Pressman");
-*/		} catch (RuntimeException e) {
-			// verificacao
-			fail("nao deve falhar");
-		}
-
+	/**
+	 * Objetivo - verificar o comportamento do sistema na conexao ao DB com
+	 * configuracao valida Pré-condição - a configuracao default da fabrica de
+	 * conexoes é valida
+	 */
+	 @Test
+	 public void quandoConectaComOBancoRetornaOK() {
+	 // cenario
+	 Connection c = null;
+	 try {
+	 // acao
+	 c = new FabricaDeConexoes().getConnection();
+	 // verificacao
+	 assertNotNull(c);
+	 } catch (Exception e) {
+	 fail("nao deveria falhar");
+	 }
 	}
 
 }

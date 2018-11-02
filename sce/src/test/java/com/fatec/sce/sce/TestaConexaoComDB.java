@@ -2,7 +2,9 @@ package com.fatec.sce.sce;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import com.fatec.sce.sce.model.ConfiguraDB;
-import com.fatec.sce.sce.model.FabricaDeConexoes; 
+import com.fatec.sce.sce.model.FabricaDeConexoes;
+
+import junit.framework.Assert; 
 
 public class TestaConexaoComDB {
 	@Test
@@ -59,5 +61,15 @@ public class TestaConexaoComDB {
 		 System.out.println(e.getMessage());
 		 assertEquals(e.getMessage(),"java.sql.SQLException: Access denied for user '"+usuario+"'@'localhost' (using password: YES)");
 	 }
+	 }
+	 
+	 @Test
+	 public void quandoISBNJaEstaCadastrado_SQLException() {
+		 Livro isbn = new Livro();
+		 isbn.setIsbn("1234");
+		 
+		 assertEquals("1234", isbn.getIsbn());
+		 
+		 
 	 }
 }
